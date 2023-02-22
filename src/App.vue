@@ -40,14 +40,14 @@ export default {
   },
   methods: {
     async getRadios() {
-      this.radios = await fetch('http://localhost:3333/radios', {
+      this.radios = await fetch(`${process.env.VUE_APP_BASE_URL}/radios`, {
         credentials: 'include',
         method: 'GET',
       }).then((e) => e.json());
     },
     async login(event) {
       console.log(event);
-      await fetch('http://localhost:3333/login', {
+      await fetch(`${process.env.VUE_APP_BASE_URL}/login`, {
         headers: {
           'content-type': 'application/json',
         },
